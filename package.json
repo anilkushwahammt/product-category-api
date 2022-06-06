@@ -2,10 +2,10 @@
   "name": "product-category-api",
   "version": "1.0.0",
   "description": "Provides product and category details",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index"
+    "start": "node app"
   },
   "repository": {
     "type": "git",
@@ -17,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/anilkushwahammt/product-category-api/issues"
   },
-  "homepage": "https://github.com/anilkushwahammt/product-category-api#readme"
+  "homepage": "https://github.com/anilkushwahammt/product-category-api#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
