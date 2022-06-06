@@ -1,8 +1,10 @@
+const {CategoryDAL}  = require('../../dal')
+
 // Get all categories
 const getCategories = async(filterCriteria) => {
-    //TODO
+    const result =  await CategoryDAL.getAllCategories();
     console.log("Category service called");
-    
+    return result;
 }
 
 

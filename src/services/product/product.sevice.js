@@ -1,7 +1,9 @@
+const {ProductDAL}  = require('../../dal')
 // Get all products
 const getProducts = async(filterCriteria) => {
-    //TODO
+    const result = await ProductDAL.getAllProducts();
     console.log("Product service called");
+    return result;
 }
 
 
