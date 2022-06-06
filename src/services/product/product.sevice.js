@@ -1,9 +1,14 @@
 const {ProductDAL}  = require('../../dal')
+const _ = require('lodash')
+const productFilterService  = require('./product.filter')
 // Get all products
 const getProducts = async(filterCriteria) => {
-    const result = await ProductDAL.getAllProducts();
+    const products = await ProductDAL.getAllProducts();
     console.log("Product service called");
-    return result;
+    if(!_.isEmpty(filterCriteria)){
+        return productFilterService.filteredProducts(products,filterCriteria)
+    }
+    return products;
 }
 
 

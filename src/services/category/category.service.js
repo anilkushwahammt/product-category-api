@@ -1,10 +1,15 @@
 const {CategoryDAL}  = require('../../dal')
+const categoryFilterService  = require('./category.filter')
+const _ = require('lodash')
 
 // Get all categories
 const getCategories = async(filterCriteria) => {
-    const result =  await CategoryDAL.getAllCategories();
+    const categoryList =  await CategoryDAL.getAllCategories();
     console.log("Category service called");
-    return result;
+    if(!_.isEmpty(filterCriteria)){
+        return categoryFilterService.filteredCategoryList(categoryList,filterCriteria)
+    }
+    return categoryList;
 }
 
 
