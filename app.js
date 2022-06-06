@@ -2,11 +2,13 @@
 const express = require('express');
 const categoryRouter = require('./src/routes/category.route');
 const productRouter = require('./src/routes/product.route');
+const bodyParser = require('body-parser')
 
 
 // constants
 const app = express();
-
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: true }))
 
 
 // routes
@@ -16,6 +18,7 @@ app.get('/', (req, res) => {
 
 app.use('/product', productRouter);
 app.use('/category', categoryRouter);
+
 
 
 // handle errors

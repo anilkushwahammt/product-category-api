@@ -11,8 +11,13 @@ const getProducts = async(filterCriteria) => {
     return products;
 }
 
+const transferProductState = async(productId,newStatus) => {
+    await ProductDAL.updateProductStatus(productId,newStatus);
+}
+
 
 // exports
 module.exports = {
-    getProducts
+    getProducts,
+    transferProductState
 }
