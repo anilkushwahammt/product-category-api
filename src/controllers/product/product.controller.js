@@ -15,9 +15,9 @@ const {ProductService}  = require('../../services')
 
 const transferProductState = async(req, res, next) => {
     try {
-        const newStatus = req.body.statusCode;
         const productId = req.body.productId;
-        await ProductService.transferProductState(productId,newStatus);
+        const action = req.body.action;
+        await ProductService.transferProductState(productId,action);
         res.send('Product updated successfully');
     } catch (err) {
         next(err);
