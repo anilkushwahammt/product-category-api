@@ -12,7 +12,22 @@ const PRODUCT_ACTION = Object.freeze({
     DISPUTE_ACCEPT: 'dispute_accept',
     INACTIVE: 'inactive'
 })
+
+const PRODUCT_SEARCH_QUERY_PARAM = Object.freeze({
+    PRODUCT_ID: 'product_id',
+    NAME: 'name',
+    PRICE: 'price',
+    CATEGORY_ID: 'category_id',
+    STATUS_CODE: 'status_code'
+})
+
+const PRODUCT_TRANSFER_PARAM = Object.freeze({
+    PRODUCT_ID: 'product_id',
+    ACTION: 'action'
+})
 module.exports = {
-    PRODUCT_ACTION
+    PRODUCT_ACTION,
+    PRODUCT_SEARCH_QUERY_PARAM,
+    PRODUCT_TRANSFER_PARAM
 }
   

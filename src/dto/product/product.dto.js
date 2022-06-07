@@ -5,7 +5,7 @@ class ProductDTO{
         this.price = product.price;
         this.category_id = product.category_id;
         this.images = product.images;
-        this.state_code = product.state.getStatusCode();
+        this.status_code = product.state.getStatusCode();
     }
 }
 

@@ -6,10 +6,10 @@ const logger = require('../../config/logger')
 
 // Get all products
 const getProducts = async(filterCriteria) => {
-    const products = await ProductDAL.getAllProducts();
+    let products = await ProductDAL.getAllProducts();
     if(!_.isEmpty(filterCriteria)){
         logger.info(" apply filter on product");
-        return productConvertor.transformProducts(productFilterService.filteredProducts(products,filterCriteria));
+        products = await productFilterService.filteredProducts(products,filterCriteria);
     }
     return productConvertor.transformProducts(products);
 }

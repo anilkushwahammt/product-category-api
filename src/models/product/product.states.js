@@ -1,4 +1,4 @@
-const {PRODUCT_ACTION:ACT} = require('../../enum/product.action')
+const {PRODUCT_ACTION:ACT} = require('../../enum/product.enum')
 
 class State {
     apply(action) {

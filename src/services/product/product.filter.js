@@ -1,10 +1,16 @@
 const logger = require('../../config/logger')
+const {PRODUCT_SEARCH_QUERY_PARAM} = require('../../enum/product.enum')
+
 const filteredProducts = async(products,filterCriteria) => {
     const filteredProduct = products.filter(product => {
     try{
         let isValid = true;
         for (key in filterCriteria) {
-            isValid = isValid && product[key] == filterCriteria[key];
+            if(key == PRODUCT_SEARCH_QUERY_PARAM.STATUS_CODE){
+                isValid = isValid && product.state.getStatusCode() == filterCriteria[key];
+            }else{
+                isValid = isValid && product[key] == filterCriteria[key];
+            }
         }
         return isValid;
     }catch{
