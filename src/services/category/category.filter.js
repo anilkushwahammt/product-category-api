@@ -1,3 +1,5 @@
+const logger = require('../../config/logger')
+
 const filteredCategoryList = async(categoryList,filterCriteria) => {
     const filteredCategory = categoryList.filter(category => {
     try{

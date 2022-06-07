@@ -1,3 +1,4 @@
+const logger = require('../../config/logger')
 const filteredProducts = async(products,filterCriteria) => {
     const filteredProduct = products.filter(product => {
     try{
