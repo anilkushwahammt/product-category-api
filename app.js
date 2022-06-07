@@ -7,10 +7,12 @@ const swaggerUi = require('swagger-ui-express');
 const swaggerDocument = require('./swagger.json');
 const expressGraphQL = require('express-graphql')
 const schema = require('./schema')
-
+require('dotenv').config();
+const PORT = process.env.PORT || 8000;
 
 // constants
 const app = express();
+
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 
@@ -43,8 +45,8 @@ app.use('/graphql', expressGraphQL({
 }))
 
 // start the server
-app.listen(8000, () => {
-    console.log(`server running at port 8000...`);
+app.listen(PORT, () => {
+    console.log(`server running at port ${PORT}...`);
 });
 
 module.exports = { app }

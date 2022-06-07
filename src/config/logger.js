@@ -1,4 +1,5 @@
 const { createLogger, format, transports } = require('winston')
+require('dotenv').config();
 
 const LOG_LEVEL = process.env.LOG_LEVEL || 'info'
 
