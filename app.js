@@ -3,6 +3,8 @@ const express = require('express');
 const categoryRouter = require('./src/routes/category.route');
 const productRouter = require('./src/routes/product.route');
 const bodyParser = require('body-parser')
+const swaggerUi = require('swagger-ui-express');
+const swaggerDocument = require('./swagger.json');
 
 
 // constants
@@ -20,7 +22,6 @@ app.use('/product', productRouter);
 app.use('/category', categoryRouter);
 
 
-
 // handle errors
 app.use((err, req, res, next) => {
     res.status(err.status || 500);
@@ -31,6 +32,8 @@ app.use((err, req, res, next) => {
         }
     });
 });
+
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 // start the server
 app.listen(8000, () => {

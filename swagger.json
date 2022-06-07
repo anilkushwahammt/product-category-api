@@ -1,0 +1,122 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "version": "1.0.0",
+      "title": "Product Category API",
+      "description": "Product Category API description",
+      "license": {
+        "name": "MIT",
+        "url": "https://opensource.org/licenses/MIT"
+      }
+    },
+    "host": "localhost:8000",
+    "basePath": "/",
+    "tags": [
+      {
+        "name": "Products",
+        "description": "API for Products in the system"
+      }
+    ],
+    "schemes": ["http"],
+    "consumes": ["application/json"],
+    "produces": ["application/json"],
+    "paths": {
+        "/product": {
+            "get": {
+                "tags": [
+                  "Produts"
+                ],
+                "summary": "Get all products in system",
+                "responses": {
+                  "200": {
+                    "description": "OK"
+                  }
+                },
+                "parameters": [
+                    {
+                      "name": "product_id",
+                      "in": "query",
+                      "type": "integer"
+                    },
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "type": "string"
+                    },
+                      {
+                        "name": "price",
+                        "in": "query",
+                        "type": "integer"
+                      },
+                      {
+                        "name": "category_id",
+                        "in": "query",
+                        "type": "integer"
+                      },
+                      {
+                        "name": "status_code",
+                        "in": "query",
+                        "type": "string",
+                        "enum": ["INACTIVE","DRAFT","DELETED_DRAFT","AVAILABLE","RETURNED","RESERVED","DELETED","EXPIRED","SOLD"]
+                      }
+                  ]
+              }
+          },
+          "/transferState": {
+            "post": {
+              "tags": [
+                "Transfer State"
+              ],
+              "description": "Transfer the Product state by applying application",
+              "parameters": [
+                {
+                  "name": "product_id",
+                  "in": "body",
+                  "description": "product whose state to be changed"
+                }
+              ],
+              "produces": [
+                "application/json"
+              ],
+              "responses": {
+                "200": {
+                  "description": "Product state is updated",
+                  "schema": {
+                    "$ref": "#/definitions/transferState"
+                  }
+                }
+              }
+            } 
+          },
+          "/category": {
+            "get": {
+                "tags": [
+                  "categories"
+                ],
+                "summary": "Get all cateories in system",
+                "responses": {
+                  "200": {
+                    "description": "OK"
+                  }
+                },
+                "parameters": [
+                    {
+                      "name": "category_id",
+                      "in": "query",
+                      "type": "integer"
+                    },
+                    {
+                        "name": "category_name",
+                        "in": "query",
+                        "type": "string"
+                    },
+                    {
+                        "name": "parent_id",
+                        "in": "query",
+                        "type": "integer"
+                    }
+                ]
+              }
+          }
+    }
+  }
