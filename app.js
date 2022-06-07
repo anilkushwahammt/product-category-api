@@ -5,6 +5,8 @@ const productRouter = require('./src/routes/product.route');
 const bodyParser = require('body-parser')
 const swaggerUi = require('swagger-ui-express');
 const swaggerDocument = require('./swagger.json');
+const expressGraphQL = require('express-graphql')
+const schema = require('./schema')
 
 
 // constants
@@ -34,6 +36,11 @@ app.use((err, req, res, next) => {
 });
 
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+
+app.use('/graphql', expressGraphQL({
+    schema,
+    graphiql: true
+}))
 
 // start the server
 app.listen(8000, () => {
